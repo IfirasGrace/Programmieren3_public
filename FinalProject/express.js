@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
 
+app.use(express.static("FinalProject"));
+
 app.get("/", function(req, res){
-    res.send("Hello world");
+    res.redirect("server.js")
 });
 
 app.listen(3000, function(){
