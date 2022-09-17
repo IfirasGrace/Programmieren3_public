@@ -1,4 +1,4 @@
-const LivingCreature = require("livingCreatures");
+const LivingCreature = require("./livingCreatures");
 module.exports = class Carnivore extends LivingCreature{
 
     constructor(x, y, index){
