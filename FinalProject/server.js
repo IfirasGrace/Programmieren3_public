@@ -45,17 +45,16 @@ function setup(){
     }
 }
 
-setInterval(updateCreature(), fr);
+setInterval(updateCreature, fr);
 
 function updateCreature(){
     for(let y = 0; y < matrix.length; y++){
         for(let x = 0; x < matrix[y].length; x++){
 
             console.log("Lebewesen", matrix[y][x]);
+            console.log("Position: ", x, y);
 
         }
-
-        console.log("Position: ", x, y);
 
     }
 
