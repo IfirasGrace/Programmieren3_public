@@ -1,4 +1,5 @@
-class Flytrap extends LivingCreature{
+const LivingCreature = require("livingCreatures");
+module.exports = class Flytrap extends LivingCreature{
 
     constructor(x, y, index){
         super(x, y, index);

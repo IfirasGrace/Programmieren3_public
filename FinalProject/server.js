@@ -1,11 +1,29 @@
 const grass = require("./grass");
-const Grazer = require("./grazer");
-const Carnivore = require("./carnivore");
-const Flytrap = require("./flytrap");
+const grazer = require("./grazer");
+const carnivore = require("./carnivore");
+const flytrap = require("./flytrap");
+
+matrix = [
+    [0, 1, 0, 1, 1, 0, 0],
+    [1, 2, 0, 1, 0, 2, 1],
+    [0, 2, 2, 0, 1, 1, 0],
+    [2, 0, 1, 3, 3, 1, 2],
+    [1, 2, 0, 0, 1, 0, 3],
+    [3, 1, 4, 2, 1, 1, 0],
+    [0, 1, 3, 2, 0, 4, 1]
+];
+
+let side = 20;
+let fr = 4;
+
+let grassArr = [];
+let grazerArr = [];
+let carnivoreArr = [];
+let flytrapArr = [];
 
 function setup(){
 
-    matrix = randomMatrix(10, 20);
+    // matrix = randomMatrix(10, 20);
 
     for(let y = 0; y < matrix.length; y++){
         for(let x = 0; x < matrix[y].length; x++){
