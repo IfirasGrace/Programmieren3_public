@@ -1,8 +1,8 @@
 const LivingCreature = require("./livingCreatures");
 module.exports = class Flytrap extends LivingCreature{
 
-    constructor(x, y, index){
-        super(x, y, index);
+    constructor(x, y){
+        super(x, y);
         this.energy = 10;
     }
 
