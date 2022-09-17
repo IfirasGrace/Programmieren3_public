@@ -14,7 +14,7 @@ matrix = [
 ];
 
 let side = 20;
-let fr = 4;
+let fr = 60;
 
 let grassArr = [];
 let grazerArr = [];
@@ -44,6 +44,8 @@ function setup(){
         }
     }
 }
+
+setInterval(updateCreature(), fr);
 
 function updateCreature(){
     for(let y = 0; y < matrix.length; y++){
@@ -79,7 +81,5 @@ function updateCreature(){
         flyObj.eat();
         flyObj.mul();
     }
-
-    setInterval(updateCreature(), fr);
 
 }
