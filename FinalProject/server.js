@@ -16,10 +16,6 @@ server.listen("3000", function(){
 
 io.on("connection", function(socket){
     console.log("Progress.", socket);
-
-    socket.on("send message", function(data){
-        io.sockets.emit("display message", data);
-    });
 });
 
 const grass = require("./grass");
@@ -75,6 +71,7 @@ function updateCreature(){
     for(let y = 0; y < matrix.length; y++){
         for(let x = 0; x < matrix[y].length; x++){
 
+            io.sockets.emit("Matrix: ", matrix);
             // console.log("Lebewesen", matrix[y][x]);
             // console.log("Position: ", x, y);
 
