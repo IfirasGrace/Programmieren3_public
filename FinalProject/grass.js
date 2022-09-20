@@ -1,3 +1,4 @@
+const random = require("./random");
 const LivingCreature = require("./livingCreatures");
 module.exports = class Grass extends LivingCreature{
 
@@ -9,7 +10,7 @@ module.exports = class Grass extends LivingCreature{
 
             let emptyCells = this.chooseCell();
 
-            let theChosenField = random(emptyCells);
+            let theChosenField = random.getRandomElement(emptyCells);
 
             if(theChosenField){
                 let newX = theChosenField[0];

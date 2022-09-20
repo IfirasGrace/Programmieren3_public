@@ -1,3 +1,4 @@
+const random = require("./random");
 const LivingCreature = require("./livingCreatures");
 module.exports = class Grazer extends LivingCreature{
 
@@ -33,7 +34,7 @@ module.exports = class Grazer extends LivingCreature{
 
             if(emptyCells.length !== 0){
 
-                let theChosenField = random(emptyCells);
+                let theChosenField = random.getRandomElement(emptyCells);
 
                 let newX = theChosenField[0];
                 let newY = theChosenField[1];
@@ -62,7 +63,7 @@ module.exports = class Grazer extends LivingCreature{
 
             if(grassCells.length !== 0){
             
-                let theChosenGrass = random(grassCells);
+                let theChosenGrass = random.getRandomElement(grassCells);
 
                 let newX = theChosenGrass[0];
                 let newY = theChosenGrass[1];
@@ -109,7 +110,7 @@ module.exports = class Grazer extends LivingCreature{
 
             if(emptyCells.length !== 0){
 
-                let theNewGrazer = random(emptyCells);
+                let theNewGrazer = random.getRandomElement(emptyCells);
 
                 let newGrazerX = theNewGrazer[0];
                 let newGrazerY = theNewGrazer[1];

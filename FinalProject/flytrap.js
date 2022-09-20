@@ -1,3 +1,4 @@
+const random = require("./random");
 const LivingCreature = require("./livingCreatures");
 module.exports = class Flytrap extends LivingCreature{
 
@@ -21,7 +22,7 @@ module.exports = class Flytrap extends LivingCreature{
 
             if(foodCells.length !== 0){
             
-                let theChosenFood = random(foodCells);
+                let theChosenFood = random.getRandomElement(foodCells);
 
                 let foodX = theChosenFood[0];
                 let foodY = theChosenFood[1];
@@ -79,7 +80,7 @@ module.exports = class Flytrap extends LivingCreature{
 
             if(grassCells.length !== 0){
 
-                let theNewFlytrap = random(grassCells);
+                let theNewFlytrap = random.getRandomElement(grassCells);
 
                 let newFlytrapX = theNewFlytrap[0];
                 let newFlytrapY = theNewFlytrap[1];
@@ -110,7 +111,7 @@ module.exports = class Flytrap extends LivingCreature{
 
                 if(flytrapCells.length !== 0){
 
-                    let theKilledFlytrap = random(flytrapCells);
+                    let theKilledFlytrap = random.getRandomElement(flytrapCells);
 
                     let newGrassX = theKilledFlytrap[0];
                     let newGrassY = theKilledFlytrap[1];

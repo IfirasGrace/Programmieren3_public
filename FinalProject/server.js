@@ -15,13 +15,13 @@ server.listen("3000", function(){
 });
 
 io.on("connection", function(socket){
-    console.log("Progress.", socket);
+    console.log("Connected");
 });
 
-const grass = require("./grass");
-const grazer = require("./grazer");
-const carnivore = require("./carnivore");
-const flytrap = require("./flytrap");
+const Grass = require("./grass");
+const Grazer = require("./grazer");
+const Carnivore = require("./carnivore");
+const Flytrap = require("./flytrap");
 
 matrix = [
     [0, 1, 0, 1, 1, 0, 0],
@@ -33,17 +33,14 @@ matrix = [
     [0, 1, 3, 2, 0, 4, 1]
 ];
 
-let side = 20;
 let fr = 60;
 
-let grassArr = [];
-let grazerArr = [];
-let carnivoreArr = [];
-let flytrapArr = [];
-/*
-function setup(){
+grassArr = [];
+grazerArr = [];
+carnivoreArr = [];
+flytrapArr = [];
 
-    // matrix = randomMatrix(10, 20);
+function setup(){
 
     for(let y = 0; y < matrix.length; y++){
         for(let x = 0; x < matrix[y].length; x++){
@@ -63,21 +60,23 @@ function setup(){
             }
         }
     }
+
+    setInterval(updateCreature, fr);
+
 }
-*/
-setInterval(updateCreature, fr);
+
+setup();
 
 function updateCreature(){
-    for(let y = 0; y < matrix.length; y++){
-        for(let x = 0; x < matrix[y].length; x++){
+    // for(let y = 0; y < matrix.length; y++){
+    //     for(let x = 0; x < matrix[y].length; x++){
 
-            io.sockets.emit("Matrix: ", matrix);
-            // console.log("Lebewesen", matrix[y][x]);
-            // console.log("Position: ", x, y);
+    //         // console.log("Lebewesen", matrix[y][x]);
+    //         // console.log("Position: ", x, y);
 
-        }
+    //     }
 
-    }
+    // }
 
     for(let i in grassArr){
         let grObj = grassArr[i];
@@ -101,5 +100,7 @@ function updateCreature(){
         flyObj.eat();
         flyObj.mul();
     }
+
+    io.sockets.emit("send matrix", matrix);
 
 }
