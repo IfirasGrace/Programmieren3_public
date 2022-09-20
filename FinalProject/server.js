@@ -1,14 +1,25 @@
 const express = require("express");
 const app = express();
 
+let server = require("http").Server(app);
+let io = require("socket.io")(server);
+
 app.use(express.static("./"));
-/*
+
 app.get("/", function(req, res){
-    res.redirect("index.html")
+    res.redirect("index.html");
 });
-*/
-app.listen(3000, function(){
-    console.log("Example is running");
+
+server.listen("3000", function(){
+    console.log("Project started.");
+});
+
+io.on("connection", function(socket){
+    console.log("Progress.", socket);
+
+    socket.on("send message", function(data){
+        io.sockets.emit("display message", data);
+    });
 });
 
 const grass = require("./grass");
@@ -33,7 +44,7 @@ let grassArr = [];
 let grazerArr = [];
 let carnivoreArr = [];
 let flytrapArr = [];
-
+/*
 function setup(){
 
     // matrix = randomMatrix(10, 20);
@@ -57,7 +68,7 @@ function setup(){
         }
     }
 }
-
+*/
 setInterval(updateCreature, fr);
 
 function updateCreature(){
