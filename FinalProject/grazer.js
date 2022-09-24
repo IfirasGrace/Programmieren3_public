@@ -107,8 +107,9 @@ module.exports = class Grazer extends LivingCreature{
         if(this.multiply >= 6){
 
             let emptyCells = this.chooseCell(0);
+            let nearbyGrazers = this.chooseCell(2);
 
-            if(emptyCells.length !== 0){
+            if(emptyCells.length !== 0 && nearbyGrazers.length !== 0){
 
                 let theNewGrazer = random.getRandomElement(emptyCells);
 

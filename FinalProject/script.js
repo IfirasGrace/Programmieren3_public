@@ -1,5 +1,3 @@
-// p5 hier hin + kommunikation z.bsp. setup
-
 const socket = io();
 
 socket.on("send matrix", showMatrix);
