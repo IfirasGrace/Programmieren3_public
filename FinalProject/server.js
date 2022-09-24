@@ -40,7 +40,7 @@ grassArr = [];
 grazerArr = [];
 carnivoreArr = [];
 flytrapArr = [];
-fog = false;
+let fog = false;
 
 function startGame(){
 
