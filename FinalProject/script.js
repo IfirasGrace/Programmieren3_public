@@ -1,12 +1,16 @@
 const socket = io();
 
 socket.on("send matrix", showMatrix);
+socket.on("send weather", changeWeather);
 
 function showMatrix(data){
     console.log(data);
     drawMatrix(data);
 }
 
+function changeWeather(data){
+    console.log(data);
+}
 function setup(){
     createCanvas(side * 20, side * 20);
 }

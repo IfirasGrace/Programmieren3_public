@@ -40,6 +40,7 @@ grassArr = [];
 grazerArr = [];
 carnivoreArr = [];
 flytrapArr = [];
+fog = false;
 
 function startGame(){
 
@@ -63,11 +64,12 @@ function startGame(){
     }
 
     io.sockets.emit("send matrix", matrix);
-    setInterval(updateCreature, fr);
+    setInterval(updateWorld, fr);
+    setInterval(updateWeather, fr * 20);
 
 }
 
-function updateCreature(){
+function updateWorld(){
     // for(let y = 0; y < matrix.length; y++){
     //     for(let x = 0; x < matrix[y].length; x++){
 
@@ -104,3 +106,10 @@ function updateCreature(){
     io.sockets.emit("send matrix", matrix);
 
 }
+/*
+function updateWeather(){
+    let fog = !fog;
+    console.log("Fog");
+    io.sockets.emit("send weather", fog);
+}
+*/
