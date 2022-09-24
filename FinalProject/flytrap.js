@@ -1,5 +1,6 @@
 const random = require("./random");
 const LivingCreature = require("./livingCreatures");
+const Grass = require("./grass");
 module.exports = class Flytrap extends LivingCreature{
 
     constructor(x, y){
@@ -8,7 +9,6 @@ module.exports = class Flytrap extends LivingCreature{
     }
 
     chooseCell(character){
-        this.getNewCoordinates();
         return super.chooseCell(character);
     }
 

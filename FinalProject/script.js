@@ -10,10 +10,10 @@ function showMatrix(data){
 }
 
 function setup(){
-    createCanvas(side * 50, side * 50);
+    createCanvas(side * 20, side * 20);
 }
 
-let side = 20;
+let side = 30;
 
 function drawMatrix(matrix){
     for(let y = 0; y < matrix.length; y++){
@@ -30,10 +30,6 @@ function drawMatrix(matrix){
                 fill("lightcoral");
             }
             rect(x * side, y * side, side, side);
-
-            fill("white");
-            textSize(9);
-            text(x + "/" + y, x * side + side/2, y * side + side/2);
         }
     }
 }

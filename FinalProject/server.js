@@ -16,6 +16,7 @@ server.listen("3000", function(){
 
 io.on("connection", function(socket){
     console.log("Connected");
+    startGame();
 });
 
 const Grass = require("./grass");
@@ -33,14 +34,14 @@ matrix = [
     [0, 1, 3, 2, 0, 4, 1]
 ];
 
-let fr = 60;
+let fr = 480;
 
 grassArr = [];
 grazerArr = [];
 carnivoreArr = [];
 flytrapArr = [];
 
-function setup(){
+function startGame(){
 
     for(let y = 0; y < matrix.length; y++){
         for(let x = 0; x < matrix[y].length; x++){
@@ -61,11 +62,10 @@ function setup(){
         }
     }
 
+    io.sockets.emit("send matrix", matrix);
     setInterval(updateCreature, fr);
 
 }
-
-setup();
 
 function updateCreature(){
     // for(let y = 0; y < matrix.length; y++){
